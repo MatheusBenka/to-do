@@ -1,0 +1,19 @@
+<header class="fixed-top">
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand">
+            TO-DO
+        </a>
+        <div *ngIf='(this.user$ | async) as user; else login'>
+            <a (click)='logout()' style="cursor:pointer;"> (Logout) </a>
+        </div>
+
+        <ng-template #login>
+            <span class="navbar-text">
+               <a [routerLink]="['']"> Entre! </a>
+            </span>      
+        </ng-template>
+    </nav>
+    <div class="fixed-top">
+        <td-loading></td-loading>
+    </div>
+</header>

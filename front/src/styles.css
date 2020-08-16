@@ -1,0 +1,9 @@
+.break-word{
+    word-break: break-all;
+}
+
+.btn-primary{
+    background-color: rgb(85, 185, 95) !important;
+    border: none !important;
+    color:#000 !important;
+}

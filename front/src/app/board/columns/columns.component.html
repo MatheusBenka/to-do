@@ -1,0 +1,13 @@
+<div id="boards-container" >
+    <div *ngIf="(this.columns$ | async) as columnsResponse">
+        <div id="{{column.id}}" class="column" *ngFor="let column of columnsResponse">
+           <td-column [column]="this.column"></td-column>
+        </div>
+    </div>
+    <div class="add-column">
+        <div class="column">
+            <td-new-column></td-new-column>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="column">
+    <i (click)="this.cancelNewColumn()" class="fa fa-times-circle pull-right mb-2" *ngIf="this.isNewFormInit"></i>
+    <span (click)="this.initNewColumnForm()" *ngIf="!this.isNewFormInit"><i class="fa fa-plus"></i> Adicionar uma coluna</span>
+    <form #form="ngForm" [formGroup]='this.newColumnForm' *ngIf="this.isNewFormInit" class="form" (submit)="this.addColumn()">
+        <input type="text" formControlName="name" class="form-control" placeholder="Nome" autofocus>
+        <td-invalid-message message='Nome é necessario' *ngIf='this.newColumnForm.get("name").errors?.required 
+                                                            && (this.form.submitted ||  this.newColumnForm.get("name").touched)'></td-invalid-message>
+        <input type="text" formControlName="description" class="form-control mt-2" placeholder="Descrição"> 
+        <td-invalid-message message='Descrição é necessaria' *ngIf='this.newColumnForm.get("description").errors?.required 
+                                                            && (this.form.submitted ||  this.newColumnForm.get("description").touched)'></td-invalid-message>
+        <input type="color" formControlName="color" class="form-control mt-2">
+        <td-invalid-message message='Cor do fundo é necessaria' *ngIf='this.newColumnForm.get("color").errors?.required 
+                                                            && (this.form.submitted ||  this.newColumnForm.get("color").touched)'></td-invalid-message>
+        <td-invalid-message message='Cor do fundo não pode ser 100% preta' *ngIf='this.newColumnForm.get("color").errors?.colorBackgroud 
+                                                            && (this.form.submitted ||  this.newColumnForm.get("color").touched)'></td-invalid-message>
+        <button  [disabled]="this.newColumnForm.invalid" class="btn btn-primary mt-3" type="submit"> Add </button>
+    </form>
+    
+</div>

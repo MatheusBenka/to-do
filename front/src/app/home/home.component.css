@@ -1,0 +1,11 @@
+#home-container{
+    display: flex;
+    justify-content: center;
+    text-align: -webkit-center;
+}
+
+#home-container #logo{
+    
+    width: 18em;
+    height: 18em;
+}
